@@ -1,5 +1,5 @@
 # meow
-Meow is sample project that display kittens as a list and view the detail of each image.
+Meow is a sample project that display kittens as a list and view the detail of each image.
 
 ## How to run
 Install dependency
