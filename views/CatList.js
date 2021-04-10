@@ -25,8 +25,7 @@ export default function CatList({ navigation }) {
                 alert("Couldn't connect to the internet")
             }
         });
-        // let number = 30
-        // list(number).catch(err => console.log(err))
+        
     }, [])
 
 
@@ -41,14 +40,13 @@ export default function CatList({ navigation }) {
             const randomNameNum = Math.floor(Math.random() * maxNameNum + 1);
 
             pictures.push(`http://placekitten.com/200/300?image=${randomNum}`);
-            temp.push({
+            newList.push({
                 picture: pictures[i],
                 name: Names[randomNameNum],
                 keyPic: randomNum,
                 keyName: randomNameNum
             })
         }
-        setCats(temp)
 
         if (first) {
             setFirst(false);
@@ -61,10 +59,10 @@ export default function CatList({ navigation }) {
         NetInfo.fetch().then((state) => {
             if (state.type === "unknown") {
                 AsyncStorage.getItem('catStorage').then((value) => {
+                    console.log("VALUE::",value)
                     setCats(value);
                 })
             } else {
-                console.log("Internet connected")
                 finishList().catch();
             }
 
@@ -72,23 +70,16 @@ export default function CatList({ navigation }) {
     }
 
     async function finishList() {
-        console.log("FINISHLIST....")
         await store.dispatch({ type: 'NEW_CAT_LIST', data: newList });
         await createCatList();
-        console.log("New list:::",newList.length)
-        await setCats([...newList]);
+        console.log("New list:::", newList.length)
+        await setCats(newList);
     }
 
 
     async function list(number) {
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-        }, 1000);
-
         await store.dispatch({ type: 'DELETE_LIST' });
-        setNumber(number)
-        await setCats([]), setNewList([])
+        await setNumber(number), setCats([]), setNewList([])
         await checkInternetConnection();
     }
     console.log("Cat:::", cats.length)
