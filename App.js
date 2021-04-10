@@ -7,22 +7,33 @@
  */
 
 import React from 'react';
-import type { Node } from 'react';
+
 import {
-  SafeAreaView,
-  StyleSheet,
-  Text
+  StyleSheet, View
 } from 'react-native';
 
-import Cat from './views/Cat'
-const App: () => Node = () => {
+import CatView from './views/Cat'
+import List from './views/CatList'
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <>
-      <Cat />
-    </>
-    
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="List">
+        <Stack.Screen name="List" component={List} />
+        <Stack.Screen name="CatView" component={CatView} />
+      </Stack.Navigator>
+
+    </NavigationContainer>
+
   );
 };
+
+
 
 const styles = StyleSheet.create({
 
