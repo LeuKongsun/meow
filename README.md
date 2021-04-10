@@ -3,11 +3,19 @@ Meow is sample project that display kittens as a list and view the detail of eac
 
 ## How to run
 Install dependency
-```yarn```
+```
+yarn
+```
+
 ## Run on Android
-```yarn android```
+```
+yarn android
+```
+
 ## Run on iOS
-``` yarn iOS```
+``` 
+yarn iOS
+```
 
 ## App Description
 Have two routes (they are usually called views or screens in iOS)
