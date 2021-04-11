@@ -4,10 +4,9 @@ import { useRoute } from '@react-navigation/native';
 import Description from '../data/descriptions.json';
 import Names from '../data/catnames.json'
 
-let number = 0;
-
 function Cat() {
   const [number, setNumber] = useState(0);
+
   useEffect(() => {
     const maxNumber = 8;
     let num = Math.floor(Math.random() * maxNumber + 1);
@@ -18,11 +17,10 @@ function Cat() {
 
   return (
     <View style={{ flex: 1 }}>
-
       <Image
         resizeMode='stretch'
         style={styles.image}
-        source={{ uri: `http://placekitten.com/200/300?image=${route.params.pic}` }} 
+        source={{ uri: `https://placekitten.com/200/300?image=${route.params.pic}` }}
       />
       <Text style={styles.name}>{Names[route.params.name]}</Text>
       <Text style={styles.description}>{Description[number]}</Text>
