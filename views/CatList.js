@@ -31,6 +31,7 @@ export default function CatList({ navigation }) {
                 alert("Couldn't connect to the internet");
             }
         });
+        setNumber(30)
     }, []);
 
     useEffect(() => {
@@ -86,6 +87,7 @@ export default function CatList({ navigation }) {
         setCats([]);
         checkInternetConnection();
     }
+    console.log("CAT::",cats.length)
 
     const buttonList = () => {
         return (
