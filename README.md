@@ -13,6 +13,12 @@ yarn android
 ```
 
 ## Run on iOS
+Install Pods
+
+```
+cd ios && pod install && cd ..
+```
+Run
 ``` 
 yarn iOS
 ```
