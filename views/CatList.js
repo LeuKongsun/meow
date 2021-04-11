@@ -87,7 +87,6 @@ export default function CatList({ navigation }) {
         setCats([]);
         checkInternetConnection();
     }
-    console.log("CAT::",cats.length)
 
     const buttonList = () => {
         return (
